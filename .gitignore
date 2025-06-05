@@ -1,0 +1,27 @@
+# Build results
+bin/
+obj/
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+
+# Visual Studio Code settings
+.vscode/
+
+# Rider / JetBrains IDEs
+.idea/
+
+# OS-specific junk
+.DS_Store
+Thumbs.db
+
+# Logs and transient files
+*.log
+*.tmp
+
+# NuGet packages
+*.nupkg
+*.snupkg
+.nuget/
