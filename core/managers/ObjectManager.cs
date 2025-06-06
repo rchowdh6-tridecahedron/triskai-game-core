@@ -29,6 +29,10 @@ namespace Triskai.Core
             objects.TryRemove(obj.Id, out _);
         }
 
+        public bool GetObject(string id, out ITickableObject target)
+        {
+            return objects.TryGetValue(id, out target);
+        }
 
         public void Tick(float deltaTime)
         {

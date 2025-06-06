@@ -8,5 +8,7 @@ namespace Triskai.Core
     {
         void Register(T obj);
         void Deregister(T obj);
+
+        bool GetObject(string id, out T target);
     }
 }

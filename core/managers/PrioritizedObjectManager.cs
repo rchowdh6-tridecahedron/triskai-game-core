@@ -50,7 +50,10 @@ namespace Triskai.Core
 
         }
 
-
+        public bool GetObject(string id, out IPrioritizedTickableObject target)
+        {
+            return objects.TryGetValue(id, out target);
+        }
 
         public void SortObjects()
         {
