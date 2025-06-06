@@ -10,7 +10,7 @@ namespace Triskai.Core
     {
         private readonly ConcurrentDictionary<string, ITickableObject> objects;
 
-        private readonly object _lock;
+        private readonly object _lock = new object();
 
         public ObjectManager()
         {
@@ -23,7 +23,7 @@ namespace Triskai.Core
             obj.Id = id;
             objects.TryAdd(id, obj);
         }
-        
+
         public void Deregister(ITickableObject obj)
         {
             objects.TryRemove(obj.Id, out _);
@@ -32,12 +32,7 @@ namespace Triskai.Core
 
         public void Tick(float deltaTime)
         {
-            List<ITickableObject> snapshot;
-
-            lock (_lock)
-            {
-                snapshot = objects.Values.ToList();   
-            }
+            List<ITickableObject> snapshot = objects.Values.ToList();
 
             Parallel.ForEach(snapshot, obj =>
             {
