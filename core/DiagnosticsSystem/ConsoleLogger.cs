@@ -11,7 +11,7 @@ namespace Triskai.Core
             minimumLevel = minLevel;
         }
 
-        public void Log(string message, LogLevel level = LogLevel.Info)
+        public void Log(string message, LogLevel level = LogLevel.Log)
         {
             if (level >= minimumLevel)
             {

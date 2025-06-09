@@ -7,7 +7,7 @@ namespace Triskai.Core
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="bus"></param>
-        public static void Raise<T>(this IEventBus bus) where T : IEvent, new()
+        public static void Publish<T>(this IEventBus bus) where T : IEvent, new()
         {
             bus.Raise(new T());
         }

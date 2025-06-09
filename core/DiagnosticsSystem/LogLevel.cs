@@ -3,7 +3,7 @@ namespace Triskai.Core
     public enum LogLevel
     {
         Debug,
-        Info,
+        Log,
         Warning,
         Error,
         Critical,
