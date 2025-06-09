@@ -3,7 +3,10 @@ using System.Collections.Generic;
 namespace Triskai.Core
 {
     /// <summary>
-    /// Generic Manager for ordered tick updates
+    /// Generic Manager for ordered updates
+    /// This will sort objects before applying
+    /// updates and is good for prioritizing certain
+    /// objects over others.
     /// </summary>
     /// <typeparam name="T">Type of prioritized tickable object managed</typeparam>
     public interface IObjectManagerWithPriority<T> : IObjectManager<T> where T : IPrioritizedTickableObject

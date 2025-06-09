@@ -8,8 +8,6 @@ namespace Triskai.Core
     {
         private readonly Dictionary<string, ITimer> timers = new Dictionary<string, ITimer>();
 
-
-
         public void Register(ITimer timer)
         {
             string id = Guid.NewGuid().ToString();
@@ -26,6 +24,48 @@ namespace Triskai.Core
         public bool GetObject(string id, out ITimer target)
         {
             return timers.TryGetValue(id, out target);
+        }
+
+        public void Start()
+        {
+            for (int i = 0; i < timers.Values.Count; i++)
+            {
+                timers.Values.ToArray()[i].Start();
+            }
+        }
+
+        public void Stop()
+        {
+            for (int i = 0; i < timers.Values.Count; i++)
+            {
+                timers.Values.ToArray()[i].Stop();
+            }
+        }
+
+        public void Start(ITimer targetTimer)
+        {
+            Start(targetTimer.Id);
+        }
+
+        public void Stop(ITimer targetTimer)
+        {
+            Stop(targetTimer.Id);
+        }
+
+        public void Start(string timerId)
+        {
+            if (GetObject(timerId, out var timer))
+            {
+                timer.Start();
+            }
+        }
+
+        public void Stop(string timerId)
+        {
+            if (GetObject(timerId, out var timer))
+            {
+                timer.Stop();
+            }
         }
 
 

@@ -5,11 +5,19 @@ using System.Threading.Tasks;
 
 namespace Triskai.Core
 {
+    /// <summary>
+    /// An example of an event bus.
+    /// </summary>
     public class EventBus : IEventBus
     {
         private readonly Dictionary<Type, List<object>> _listeners = new Dictionary<Type, List<object>>();
         private readonly object _lock = new object();
 
+        /// <summary>
+        /// Raise an event of type T (I Event)
+        /// </summary>
+        /// <typeparam name="T">Event Type</typeparam>
+        /// <param name="evt">Event Data</param>
         public void Raise<T>(T evt) where T : IEvent
         {
             List<IEventListener<T>> snapshot;

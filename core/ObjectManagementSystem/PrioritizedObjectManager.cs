@@ -5,6 +5,11 @@ using System.Threading.Tasks;
 
 namespace Triskai.Core
 {
+    /// <summary>
+    /// A game manager that includes prioritization.
+    /// By default, it goes from low to high, so a priority of 0 comes 
+    /// before a priority of 10.
+    /// </summary>
     public class PrioritizedObjectManager : IObjectManagerWithPriority<IPrioritizedTickableObject>
     {
         private readonly ConcurrentDictionary<string, IPrioritizedTickableObject> objects;
@@ -65,7 +70,7 @@ namespace Triskai.Core
             lock (_lock)
             {
                 readList.Sort(comparer);
-                _isDirty = false;    
+                _isDirty = false;
             }
         }
 
