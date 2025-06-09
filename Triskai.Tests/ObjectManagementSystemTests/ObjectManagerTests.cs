@@ -97,7 +97,7 @@ public class ObjectManagerTests
 
         // create a shit ton of objects, and have it run.
         // I think a 100 objects is good
-        var gameObjects = Enumerable.Range(0, 100)
+        var gameObjects = Enumerable.Range(0, 100000)
             .Select(_ => new GenericObject())
             .ToArray();
 
@@ -152,7 +152,7 @@ public class ObjectManagerTests
 
         // create a shit ton of objects, and have it run.
         // I think a 100 objects is good
-        var gameObjects = Enumerable.Range(0, 100)
+        var gameObjects = Enumerable.Range(0, 100000)
             .Select(_ => new GenericObject())
             .ToArray();
 
